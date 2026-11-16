@@ -17,5 +17,4 @@
 #  Aşağıdaki 2 satır ÖRNEKTİR — ilk gerçek numaranı ekleyince sil.
 # ============================================================
 
-0850 000 00 01 | Kargo SMS | ÖRNEK KAYIT: Kargonuz adreste bulunamadı diye SMS gönderdi, linkte kart bilgisi istendi | 2026-11-16
-0212 000 00 02 | Sahte Polis Savcı | ÖRNEK KAYIT: Kendini savcı olarak tanıttı, hesabınız terör soruşturmasında kullanıldı dedi | 2026-11-16
+05431945084 | SMS | ÖRNEK KAYIT: Nakit para dağıtıyoruz diye SMS gönderdi, çekim yap dedi| 2026-11-16
