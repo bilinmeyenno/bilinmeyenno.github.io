@@ -19,3 +19,7 @@
 
 0543 194 50 84 | Yasa Dışı Bahis | Nakit para dağıtıldığını söyleyip çekim yapmaya yönlendiren SMS gönderildi | 2026-11-16
 0545 295 87 74 | Yasa Dışı Bahis | Yasa dışı bahis sitesi reklamı içeren SMS gönderildi | 2026-11-16
+0545 561 47 70 | Çekiliş Kazandınız | 5000 TL kazandığınızı söyleyip hemen aktif etmeye yönlendiren SMS gönderildi | 2026-11-16
+0850 771 06 29 | Yasa Dışı Bahis | Bahis sitesi adına telefonla arama yapıldı | 2026-11-16
+0548 845 07 70 | Yasa Dışı Bahis | Bahis sitesi adına telefonla arama yapıldı | 2026-11-16
+0533 133 96 90 | Yasa Dışı Bahis | Bahis sitesi adına telefonla arama yapıldı | 2026-11-16
