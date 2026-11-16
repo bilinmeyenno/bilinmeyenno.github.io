@@ -7,3 +7,4 @@ SITE_ADRESI = https://bilinmeyenno.github.io
 # Kişisel e-postanı yazma; bu iş için ayrı bir Gmail açman önerilir.
 ITIRAZ_EPOSTA = buraya-itiraz-epostasi@gmail.com
 GOOGLE_DOGRULAMA = qoDcXnhlB9sWIiK_nx0vt5vnB9H3Ds6lmMWUiYSdfP4
+CLOUDFLARE_KODU = 6df16e8dad704bcfa8dd3ef1d8235b21
