@@ -1,0 +1,21 @@
+# ============================================================
+#  BİLİNMEYEN NO — NUMARA LİSTESİ
+# ============================================================
+#  Her satır = bir şikayet. Format:
+#
+#  numara | yöntem | ne oldu | tarih
+#
+#  - numara : boşluklu ya da boşluksuz yazabilirsin (0850 123 45 67 / 08501234567)
+#  - yöntem : yontemler.txt içindeki başlıklardan biri (örn. Kargo SMS)
+#  - ne oldu: kısa açıklama. İSİM YAZMA, sadece ne yaşandığını yaz.
+#  - tarih  : YYYY-AA-GG (örn. 2026-11-16). Boş bırakılabilir.
+#
+#  Aynı numarayı birden fazla satıra yazarsan, o numaranın
+#  sayfasında birden fazla şikayet görünür.
+#  "#" ile başlayan satırlar dikkate alınmaz.
+#
+#  Aşağıdaki 2 satır ÖRNEKTİR — ilk gerçek numaranı ekleyince sil.
+# ============================================================
+
+0850 000 00 01 | Kargo SMS | ÖRNEK KAYIT: Kargonuz adreste bulunamadı diye SMS gönderdi, linkte kart bilgisi istendi | 2026-11-16
+0212 000 00 02 | Sahte Polis Savcı | ÖRNEK KAYIT: Kendini savcı olarak tanıttı, hesabınız terör soruşturmasında kullanıldı dedi | 2026-11-16

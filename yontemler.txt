@@ -1,0 +1,40 @@
+# ============================================================
+#  DOLANDIRICILIK YÖNTEMLERİ
+# ============================================================
+#  "## " ile başlayan satır = yeni yöntem başlığı.
+#  Altındaki satırlar = açıklama paragrafları.
+#  "- " ile başlayan satırlar = madde işareti.
+#  numaralar.txt'de "yöntem" kısmına bu başlıkları aynen yaz.
+# ============================================================
+
+## Kargo SMS
+"Kargonuz adreste teslim edilemedi", "gümrük ücreti ödemeniz gerekiyor" gibi mesajlarla bir link gönderilir. Link gerçek kargo firmasına benzeyen sahte bir sayfaya gider ve kart bilgileri ya da SMS ile gelen onay kodu istenir.
+- Kargo firmaları küçük ücretleri SMS linkiyle kart bilgisi isteyerek tahsil etmez.
+- Linke tıklama; kargonu firmanın resmi uygulamasından ya da sitesinden takip numarasıyla kontrol et.
+- Kart bilgisi girdiysen hemen bankanı arayıp kartını kapattır.
+
+## Sahte Polis Savcı
+Arayan kişi kendini polis, savcı, jandarma ya da MASAK görevlisi olarak tanıtır. "Hesabınız terör örgütü / dolandırıcılık soruşturmasında kullanılmış" diyerek korku yaratır, paranın "güvenli hesaba" aktarılmasını, altın alınıp teslim edilmesini ya da kimseye söylenmemesini ister.
+- Polis, savcı veya hiçbir kamu görevlisi telefonda para, altın, kart ya da şifre istemez.
+- "Kimseye söyleme" baskısı yapılıyorsa bu dolandırıcılıktır.
+- Telefonu kapat; şüphen varsa 112 Acil Çağrı hattını kendin ara.
+
+## Sahte Banka
+Bankanın güvenlik birimi gibi aranır. "Kartınızdan şüpheli işlem yapıldı, iptal etmemiz için gelen kodu söyleyin" denir. Söylenen kod aslında senin hesabından para çıkışını onaylar.
+- Banka seni arayıp SMS ile gelen şifreyi, onay kodunu veya kart şifreni sormaz.
+- Telefonu kapat, bankanın kartın arkasındaki numarasını kendin ara.
+
+## WhatsApp Kod
+"Yanlışlıkla sana 6 haneli bir kod gönderdim, bana iletir misin?" denir. Bu kod senin WhatsApp hesabının doğrulama kodudur; iletirsen hesabın ele geçirilir ve rehberindeki kişilerden borç istenir.
+- WhatsApp doğrulama kodunu kimseyle paylaşma.
+- WhatsApp'ta "İki adımlı doğrulama"yı aç.
+
+## Çekiliş Kazandınız
+"Çekilişte telefon / araba / para kazandınız" denir. Ödülü almak için önce "vergi", "kargo" veya "noter ücreti" adı altında para istenir.
+- Katılmadığın bir çekilişi kazanamazsın.
+- Ödül için önceden para isteniyorsa dolandırıcılıktır.
+
+## IBAN Kiralama
+"Hesabını birkaç günlüğüne kullanmamıza izin ver, sana komisyon verelim" ya da "iş ilanı" kılıfıyla IBAN / banka hesabı istenir. Bu hesap dolandırıcılıktan gelen parayı aktarmak için kullanılır ve hesap sahibi suça ortak duruma düşer.
+- Banka hesabını, kartını veya internet bankacılığı şifreni kimseye "kiralama".
+- Bu teklifler yasal değildir; sorumluluk hesap sahibine çıkabilir.

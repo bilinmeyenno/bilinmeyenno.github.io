@@ -1,0 +1,8 @@
+# ============================================================
+#  SİTE AYARLARI
+# ============================================================
+SITE_ADI = Bilinmeyen No
+SITE_ADRESI = https://bilinmeyenno.github.io
+# İtiraz / kaldırma talepleri bu adrese gelir.
+# Kişisel e-postanı yazma; bu iş için ayrı bir Gmail açman önerilir.
+ITIRAZ_EPOSTA = buraya-itiraz-epostasi@gmail.com

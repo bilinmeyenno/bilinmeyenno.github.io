@@ -1,0 +1,101 @@
+:root {
+  --bg: #f6f7f9;
+  --kart: #ffffff;
+  --yazi: #1d2330;
+  --soluk: #5d6677;
+  --cizgi: #e3e6ec;
+  --ana: #c62828;
+  --ana-koyu: #9f1d1d;
+  --uyari-bg: #fff4e5;
+  --uyari: #8a4b00;
+  --iyi-bg: #e8f6ee;
+  --iyi: #1d6b3c;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--yazi);
+}
+a { color: var(--ana); }
+.kap { max-width: 760px; margin: 0 auto; padding: 0 16px; }
+
+.ust { background: #1d2330; color: #fff; }
+.ust .kap { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-top: 12px; padding-bottom: 12px; flex-wrap: wrap; }
+.logo { color: #fff; font-weight: 800; font-size: 1.15rem; text-decoration: none; }
+.ust nav a { color: #d6dbe5; text-decoration: none; margin-left: 16px; font-size: .95rem; }
+.ust nav a:first-child { margin-left: 0; }
+
+main { padding-top: 24px; padding-bottom: 40px; }
+h1 { font-size: 1.7rem; line-height: 1.25; margin: .2em 0 .5em; }
+h2 { font-size: 1.2rem; margin: 1.8em 0 .7em; }
+h3 { font-size: 1.05rem; margin: 0 0 .4em; }
+
+.kahraman { background: var(--kart); border: 1px solid var(--cizgi); border-radius: 14px; padding: 24px 20px; text-align: center; }
+.kahraman h1 { font-size: 1.9rem; }
+.kahraman > p { color: var(--soluk); margin-top: 0; }
+
+.arama { display: flex; gap: 8px; margin: 16px 0 8px; }
+.arama input {
+  flex: 1; min-width: 0; font-size: 1.1rem; padding: 14px 14px;
+  border: 2px solid var(--cizgi); border-radius: 10px; background: #fff;
+}
+.arama input:focus { outline: none; border-color: var(--ana); }
+.arama button {
+  font-size: 1.05rem; font-weight: 700; padding: 0 20px; border: 0; border-radius: 10px;
+  background: var(--ana); color: #fff; cursor: pointer;
+}
+.arama button:hover { background: var(--ana-koyu); }
+
+.durum { border-radius: 10px; padding: 12px 14px; background: #eef0f4; text-align: left; }
+.durum-uyari { background: var(--uyari-bg); color: var(--uyari); }
+.durum-iyi { background: var(--iyi-bg); color: var(--iyi); }
+.arama-sonuc { margin-top: 8px; }
+
+.kartlar { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+.kart { background: var(--kart); border: 1px solid var(--cizgi); border-radius: 12px; padding: 12px 14px; }
+.kart-no { font-size: 1.2rem; font-weight: 800; color: var(--yazi); text-decoration: none; letter-spacing: .3px; }
+.kart-no.kucuk { font-size: 1.05rem; }
+.kart-no:hover { color: var(--ana); }
+.kart-alt { margin-top: 6px; display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-size: .9rem; color: var(--soluk); }
+
+.etiket {
+  display: inline-block; background: #fdecec; color: var(--ana-koyu); border-radius: 999px;
+  padding: 2px 10px; font-size: .85rem; font-weight: 600; text-decoration: none;
+}
+.tarih { color: var(--soluk); font-size: .85rem; }
+
+.numara-baslik { font-size: 2.1rem; letter-spacing: .5px; }
+.yol { font-size: .85rem; color: var(--soluk); margin: 0; }
+.yol a { color: var(--soluk); }
+
+.sikayetler { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+.sikayet { background: var(--kart); border: 1px solid var(--cizgi); border-left: 4px solid var(--ana); border-radius: 10px; padding: 12px 14px; }
+.sikayet p { margin: 6px 0 0; }
+.sikayet-ust { display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap; }
+
+.bilgi { background: var(--kart); border: 1px solid var(--cizgi); border-radius: 12px; padding: 14px 16px; margin-top: 16px; }
+.bilgi p { margin: 0 0 8px; }
+.bilgi ul { margin: 0; padding-left: 20px; }
+.bilgi-yesil { background: var(--iyi-bg); border-color: #cfe9d9; }
+
+.metin { background: var(--kart); border: 1px solid var(--cizgi); border-radius: 12px; padding: 6px 18px; }
+.maddeler li { margin-bottom: 6px; }
+
+.dugme {
+  display: inline-block; background: var(--ana); color: #fff; text-decoration: none;
+  padding: 10px 18px; border-radius: 10px; font-weight: 700;
+}
+.kucuk-not { font-size: .85rem; color: var(--soluk); }
+
+.alt { border-top: 1px solid var(--cizgi); background: #fff; color: var(--soluk); font-size: .88rem; padding: 18px 0 28px; }
+
+@media (max-width: 480px) {
+  h1, .kahraman h1 { font-size: 1.45rem; }
+  .numara-baslik { font-size: 1.75rem; }
+  .arama { flex-direction: column; }
+  .arama button { padding: 13px; }
+  .ust nav a { margin-left: 12px; }
+}
