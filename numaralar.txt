@@ -17,5 +17,5 @@
 #  Aşağıdaki 2 satır ÖRNEKTİR — ilk gerçek numaranı ekleyince sil.
 # ============================================================
 
-05431945084 | SMS | ÖRNEK KAYIT: Nakit para dağıtıyoruz diye SMS gönderdi, çekim yap dedi| 2026-11-16
+0543 194 50 84 | Yasa Dışı Bahis | Nakit para dağıtıldığını söyleyip çekim yapmaya yönlendiren SMS gönderildi | 2026-11-16
 0545 295 87 74 | Yasa Dışı Bahis | Yasa dışı bahis sitesi reklamı içeren SMS gönderildi | 2026-11-16
