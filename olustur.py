@@ -26,7 +26,8 @@ def oku(ad):
 
 
 def ayarlari_oku():
-    a = {"SITE_ADI": "Bilinmeyen No", "SITE_ADRESI": "", "ITIRAZ_EPOSTA": ""}
+    a = {"SITE_ADI": "Bilinmeyen No", "SITE_ADRESI": "", "ITIRAZ_EPOSTA": "",
+         "GOOGLE_DOGRULAMA": "", "CLOUDFLARE_KODU": ""}
     for s in oku("ayarlar.txt"):
         s = s.strip()
         if not s or s.startswith("#") or "=" not in s:
@@ -34,6 +35,18 @@ def ayarlari_oku():
         k, v = s.split("=", 1)
         a[k.strip()] = v.strip()
     a["SITE_ADRESI"] = a["SITE_ADRESI"].rstrip("/")
+
+    # Google: tam <meta ...> satırı da yapıştırılabilir, sadece kod da.
+    g = a["GOOGLE_DOGRULAMA"]
+    m = re.search(r'content\s*=\s*["\']([^"\']+)["\']', g)
+    a["GOOGLE_DOGRULAMA"] = (m.group(1) if m else g).strip().strip('"\'')
+
+    # Cloudflare: tam <script ...> kodu da yapıştırılabilir, sadece token da.
+    c = a["CLOUDFLARE_KODU"]
+    m = re.search(r'token["\']?\s*:\s*["\']([0-9a-zA-Z]+)["\']', c)
+    a["CLOUDFLARE_KODU"] = m.group(1) if m else (c.strip() if re.fullmatch(r"[0-9a-zA-Z]+", c.strip()) else "")
+    if c.strip() and not a["CLOUDFLARE_KODU"]:
+        UYARILAR.append("ayarlar.txt: CLOUDFLARE_KODU anlaşılamadı, istatistik kodu eklenmedi")
     return a
 
 
@@ -120,6 +133,11 @@ def tarih_tr(t):
 
 def sayfa(A, baslik, aciklama, govde, yol, ekstra_head=""):
     tam_baslik = baslik if A["SITE_ADI"] in baslik else f"{baslik} | {A['SITE_ADI']}"
+    gmeta = (f'<meta name="google-site-verification" content="{e(A["GOOGLE_DOGRULAMA"])}">'
+             if A["GOOGLE_DOGRULAMA"] else "")
+    cfjs = ("<script defer src=\"https://static.cloudflareinsights.com/beacon.min.js\" "
+            "data-cf-beacon='{\"token\": \"" + A["CLOUDFLARE_KODU"] + "\"}'></script>"
+            if A["CLOUDFLARE_KODU"] else "")
     canon = f'<link rel="canonical" href="{e(A["SITE_ADRESI"] + yol)}">' if A["SITE_ADRESI"] else ""
     return f"""<!DOCTYPE html>
 <html lang="tr">
@@ -132,6 +150,7 @@ def sayfa(A, baslik, aciklama, govde, yol, ekstra_head=""):
 <meta property="og:title" content="{e(tam_baslik)}">
 <meta property="og:description" content="{e(aciklama)}">
 <meta property="og:type" content="website">
+{gmeta}
 <link rel="stylesheet" href="/stil.css">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📞</text></svg>">
 {ekstra_head}
@@ -153,6 +172,7 @@ def sayfa(A, baslik, aciklama, govde, yol, ekstra_head=""):
   </div>
 </footer>
 <script src="/arama.js" defer></script>
+{cfjs}
 </body>
 </html>
 """
