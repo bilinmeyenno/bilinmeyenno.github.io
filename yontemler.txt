@@ -38,3 +38,9 @@ Bankanın güvenlik birimi gibi aranır. "Kartınızdan şüpheli işlem yapıld
 "Hesabını birkaç günlüğüne kullanmamıza izin ver, sana komisyon verelim" ya da "iş ilanı" kılıfıyla IBAN / banka hesabı istenir. Bu hesap dolandırıcılıktan gelen parayı aktarmak için kullanılır ve hesap sahibi suça ortak duruma düşer.
 - Banka hesabını, kartını veya internet bankacılığı şifreni kimseye "kiralama".
 - Bu teklifler yasal değildir; sorumluluk hesap sahibine çıkabilir.
+
+## Yasa Dışı Bahis
+"Deneme bonusu", "kayıt ol 500 TL bonus kazan", "kesin kazanç" gibi SMS veya WhatsApp mesajlarıyla yasa dışı bahis sitelerine link gönderilir. Bu siteler lisanssızdır; kazancı ödememe, yatırılan parayı geri vermeme ve girilen kart / kimlik bilgilerini kötüye kullanma riski yüksektir.
+- Türkiye'de yasa dışı bahis suçtur; oynayan kişiye de ceza uygulanabilir.
+- Mesajdaki linke tıklama, kart veya kimlik bilgisi girme.
+- Mesajı sil ve numarayı engelle.
