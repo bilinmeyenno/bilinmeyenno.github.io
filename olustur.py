@@ -73,7 +73,17 @@ def numara_normal(ham):
 def numara_goster(d):
     if len(d) == 11 and d.startswith("0"):
         return f"{d[0:4]} {d[4:7]} {d[7:9]} {d[9:11]}"
+    if len(d) == 7 and d.startswith("444"):
+        return f"{d[0:3]} {d[3]} {d[4:7]}"
     return d
+
+
+# numaralar.txt'de yöntem olarak bunlardan biri yazılırsa numara "resmi / güvenli" sayılır
+GUVENLI_SLUGLAR = {"guvenli", "resmi", "resmi-numara", "guvenli-numara"}
+
+
+def guvenli_mi(k):
+    return slug(k["yontem"]) in GUVENLI_SLUGLAR
 
 
 def yontemleri_oku():
@@ -189,6 +199,8 @@ ARAMA_FORMU = """
 
 def yontem_linki(ad, yontemler):
     s = slug(ad)
+    if s in GUVENLI_SLUGLAR:
+        return '<span class="etiket etiket-yesil">✅ Resmi numara</span>'
     if s in yontemler:
         return f'<a class="etiket" href="/yontem/{s}/">{e(yontemler[s]["baslik"])}</a>'
     return f'<span class="etiket">{e(ad)}</span>'
@@ -197,9 +209,11 @@ def yontem_linki(ad, yontemler):
 def numara_kart(d, liste, yontemler):
     son = max((k["tarih"] for k in liste), default="")
     etiketler = " ".join(OrderedDict.fromkeys(yontem_linki(k["yontem"], yontemler) for k in liste))
+    n_sikayet = sum(1 for k in liste if not guvenli_mi(k))
+    sayi = f'<span class="sayi">{n_sikayet} şikayet</span>' if n_sikayet else ""
     return f"""<li class="kart">
   <a class="kart-no" href="/numara/{d}/">{e(numara_goster(d))}</a>
-  <div class="kart-alt">{etiketler} <span class="sayi">{len(liste)} şikayet</span>{f' <span class="tarih">· {e(tarih_tr(son))}</span>' if son else ''}</div>
+  <div class="kart-alt">{etiketler} {sayi}{f' <span class="tarih">· {e(tarih_tr(son))}</span>' if son else ''}</div>
 </li>"""
 
 
@@ -220,7 +234,7 @@ def main():
 
     for d, liste in kayitlar.items():
         for k in liste:
-            if slug(k["yontem"]) not in yontemler:
+            if slug(k["yontem"]) not in yontemler and not guvenli_mi(k):
                 UYARILAR.append(f"{numara_goster(d)}: yöntem '{k['yontem']}' yontemler.txt'de yok (etiket olarak gösterilecek)")
 
     if os.path.exists(CIKTI):
@@ -239,13 +253,22 @@ def main():
     # --- numara sayfaları
     for d, liste in kayitlar.items():
         g = numara_goster(d)
-        yontem_adlari = list(OrderedDict.fromkeys(yontemler.get(slug(k["yontem"]), {"baslik": k["yontem"]})["baslik"] for k in liste))
+        resmi = [k for k in liste if guvenli_mi(k)]
+        sik = [k for k in liste if not guvenli_mi(k)]
+        sirala = lambda l: sorted(l, key=lambda k: (k["tarih"], k["sira"]), reverse=True)
+        yontem_adlari = list(OrderedDict.fromkeys(yontemler.get(slug(k["yontem"]), {"baslik": k["yontem"]})["baslik"] for k in sik))
         sikayetler = "\n".join(
             f"""<li class="sikayet">
   <div class="sikayet-ust">{yontem_linki(k["yontem"], yontemler)}{f'<span class="tarih">{e(tarih_tr(k["tarih"]))}</span>' if k["tarih"] else ''}</div>
   <p>{e(k["aciklama"])}</p>
 </li>"""
-            for k in sorted(liste, key=lambda k: (k["tarih"], k["sira"]), reverse=True))
+            for k in sirala(sik))
+        resmi_html = "\n".join(
+            f"""<li class="sikayet sikayet-yesil">
+  <div class="sikayet-ust">{yontem_linki(k["yontem"], yontemler)}{f'<span class="tarih">{e(tarih_tr(k["tarih"]))}</span>' if k["tarih"] else ''}</div>
+  <p>{e(k["aciklama"])}</p>
+</li>"""
+            for k in sirala(resmi))
         ilgili = ""
         for ad in yontem_adlari:
             s = slug(ad)
@@ -253,11 +276,39 @@ def main():
                 y = yontemler[s]
                 ilk = next((b[1] for b in y["bloklar"] if b[0] == "p"), "")
                 ilgili += f'<div class="bilgi"><h3>Bu yöntem nasıl işliyor? — {e(y["baslik"])}</h3><p>{e(ilk)}</p><a href="/yontem/{s}/">Devamını oku →</a></div>'
-        aciklama = f"{g} numarası hakkında {len(liste)} şikayet var: {', '.join(yontem_adlari)}. Bu numara sizi aradıysa dikkatli olun."
-        govde = f"""
+        taklit_uyari = """<div class="bilgi">
+  <h3>Dikkat: resmi numaralar taklit edilebilir</h3>
+  <p>Dolandırıcılar, ekranda resmi bir numara görünecek şekilde arama yapabilir. Arayan kişi <strong>şifre, SMS kodu veya kart bilgisi</strong> isterse telefonu kapat ve bu numarayı <strong>kendin</strong> ara.</p>
+</div>"""
+        if not sik:
+            kim = resmi[0]["aciklama"]
+            baslik = f"{g} kimin numarası? {kim}"
+            aciklama = f"{g} numarası resmi olarak kayıtlı: {kim}."
+            govde = f"""
 <p class="yol"><a href="/">Ana sayfa</a> › Numara</p>
 <h1 class="numara-baslik">{e(g)}</h1>
-<p class="durum durum-uyari">⚠️ Bu numara hakkında <strong>{len(liste)} şikayet</strong> var. Kesin hüküm değildir; numara taklit edilmiş olabilir.</p>
+<p class="durum durum-iyi">✅ Bu numara <strong>resmi numara</strong> olarak kayıtlı. Hakkında şikayet yok.</p>
+<h2>Kime ait?</h2>
+<ul class="sikayetler">
+{resmi_html}
+</ul>
+{taklit_uyari}
+<h2>Başka bir numara sorgula</h2>
+{ARAMA_FORMU}
+"""
+        else:
+            baslik = f"{g} kimin numarası? Şikayetler"
+            aciklama = f"{g} numarası hakkında {len(sik)} şikayet var: {', '.join(yontem_adlari)}. Bu numara sizi aradıysa dikkatli olun."
+            resmi_bolum = (f"""<h2>Resmi kayıt</h2>
+<p>Bu numara resmi olarak şuna ait görünüyor; şikayetler numaranın <strong>taklit edildiğini</strong> gösteriyor olabilir.</p>
+<ul class="sikayetler">
+{resmi_html}
+</ul>""" if resmi else "")
+            govde = f"""
+<p class="yol"><a href="/">Ana sayfa</a> › Numara</p>
+<h1 class="numara-baslik">{e(g)}</h1>
+<p class="durum durum-uyari">⚠️ Bu numara hakkında <strong>{len(sik)} şikayet</strong> var. Kesin hüküm değildir; numara taklit edilmiş olabilir.</p>
+{resmi_bolum}
 <h2>Şikayetler</h2>
 <ul class="sikayetler">
 {sikayetler}
@@ -274,7 +325,7 @@ def main():
 <h2>Başka bir numara sorgula</h2>
 {ARAMA_FORMU}
 """
-        yaz(f"/numara/{d}/", sayfa(A, f"{g} kimin numarası? Şikayetler", aciklama, govde, f"/numara/{d}/"))
+        yaz(f"/numara/{d}/", sayfa(A, baslik, aciklama, govde, f"/numara/{d}/"))
 
     # --- yöntem sayfaları
     yontem_numaralari = defaultdict(list)

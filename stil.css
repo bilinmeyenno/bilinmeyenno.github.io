@@ -99,3 +99,6 @@ h3 { font-size: 1.05rem; margin: 0 0 .4em; }
   .arama button { padding: 13px; }
   .ust nav a { margin-left: 12px; }
 }
+
+.etiket-yesil { background: var(--iyi-bg); color: var(--iyi); }
+.sikayet-yesil { border-left-color: var(--iyi); }

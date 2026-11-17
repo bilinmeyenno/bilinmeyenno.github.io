@@ -9,6 +9,8 @@
   function goster(d) {
     if (d.length === 11 && d[0] === "0")
       return d.slice(0, 4) + " " + d.slice(4, 7) + " " + d.slice(7, 9) + " " + d.slice(9);
+    if (d.length === 7 && d.indexOf("444") === 0)
+      return d.slice(0, 3) + " " + d[3] + " " + d.slice(4);
     return d;
   }
   var liste = null;
