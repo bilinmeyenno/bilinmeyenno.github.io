@@ -28,3 +28,6 @@
 0850 222 66 60 | Güvenli | Eureko Sigorta resmi müşteri iletişim merkezi | 2026-11-17
 0850 771 18 39 | Yasa Dışı Bahis | Bahis sitesi adına "bedava para kazandınız" ses kaydıyla arama yapıldı | 2026-11-17
 0212 822 04 22 | Yatırım Danışmanlığı Araması | Yatırım danışmanı olduklarını söyleyerek arama yapıldı | 2026-11-18
+0542 189 92 77 | Yasa Dışı Bahis | Bahis sitesi reklamı içeren SMS gönderildi | 2026-11-18
+0212 822 03 29 | Yasa Dışı Bahis | Bahis sitesi reklamı yapıldı | 2026-11-18
+
