@@ -44,3 +44,9 @@ Bankanın güvenlik birimi gibi aranır. "Kartınızdan şüpheli işlem yapıld
 - Türkiye'de yasa dışı bahis suçtur; oynayan kişiye de ceza uygulanabilir.
 - Mesajdaki linke tıklama, kart veya kimlik bilgisi girme.
 - Mesajı sil ve numarayı engelle.
+
+## Yatırım Danışmanlığı Araması
+Kendini yatırım danışmanı, borsa/kripto uzmanı ya da aracı kurum çalışanı olarak tanıtan kişilerden gelen aramalar. Bu aramaların bir kısmı gerçek kurumlardan gelebilir, ancak bu yöntem dolandırıcılar tarafından da sık kullanılır. Arayanın kim olduğundan emin olmadan işlem yapmamak gerekir.
+- Türkiye'de yatırım danışmanlığı sadece SPK yetkili kurumlarca yapılabilir; arayan kurumu SPK'nın sitesinden kendin kontrol et.
+- "Garantili ve yüksek kazanç" vaadi önemli bir uyarı işaretidir.
+- Ekran paylaşımı, uzaktan erişim uygulaması veya kart/şifre bilgisi isteyene izin verme.
