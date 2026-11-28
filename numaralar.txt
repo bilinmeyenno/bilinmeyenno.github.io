@@ -35,4 +35,5 @@
 0850 220 00 00 | Güvenli | Ziraat Bankası resmi müşteri iletişim merkezi | 2026-11-26
 0850 258 00 00 | Güvenli | Ziraat Bankası resmi müşteri iletişim merkezi | 2026-11-26
 0212 922 24 49 | Yasa Dışı Bahis | Bahis sitesi adına ses kaydıyla arama yapıldı | 2026-11-26
+0312 995 08 73 | Yasa Dışı Bahis | Bahis sitesi adına arama yapıldı | 2026-11-28
 
